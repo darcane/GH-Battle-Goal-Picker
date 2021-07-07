@@ -1,4 +1,6 @@
-let goalsInit = [];
+const goalsBase = [];
+const goalsExtended = [];
+const goalsJotl = [];
 let back;
 let goals = [];
 let picks = [];
@@ -6,6 +8,9 @@ let picks = [];
 let seed;
 let playerNumber;
 let button;
+let pkgBase;
+let pkgExtended;
+let pkgJotl;
 
 let picksShown = false;
 let isLoading = true;
@@ -17,7 +22,6 @@ function setup() {
   loadAllImages();
   createDoms();
   button.mousePressed(btnPress);
-  resetArrays();
 }
 
 function draw() {
@@ -31,7 +35,10 @@ function draw() {
 
 function btnPress() {
   resetArrays();
-
+  if (goals.length === 0) {
+    showError("Please select a package from down below");
+    return;
+  }
   let seedVal = seed.value();
   if (seedVal === "") {
     seedVal = Math.floor(random(1, 10000));

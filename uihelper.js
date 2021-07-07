@@ -9,7 +9,7 @@ function showLoading() {
   rect(x, height / 2, width - 2 * x, 20);
   fill(0, 200, 0);
   noStroke();
-  w = (width - 2 * x) * (goalsInit.length / totalImageCount);
+  w = (width - 2 * x) * (loadedNumber() / totalImageCount);
   rect(x, height / 2, w, 20);
 
   fill(255);
@@ -56,7 +56,7 @@ function showPicks() {
       picksShown = true;
       break;
     default:
-      text("Please select a player number", 50, height / 2);
+      showError("Please select a player number");
       picksShown = false;
       break;
   }
@@ -76,4 +76,10 @@ function displayPicks() {
       y += 240;
     }
   }
+}
+
+function showError(message) {
+  background(51);
+  fill(255);
+  text(message, 50, height / 2);
 }
