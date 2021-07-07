@@ -1,3 +1,4 @@
+let goalsOnStorage = [];
 let goalsInit = [];
 let back;
 let goals = [];
@@ -25,6 +26,7 @@ function draw() {
     showLoading();
   } else {
     showWelcome();
+    storeGoalsOnStorage();
     noLoop();
   }
 }
