@@ -187,5 +187,13 @@ function showLoading() {
 function showWelcome() {
   push();
   background(51);
+  fill(255);
+  textSize(24);
+  text("Welcome to GloomHaven Battle Goal Picker", 50, 100);
+  textSize(16);
+  text("- Please enter a seed number", 50, 150);
+  text("- Then select player number", 50, 170);
+  text("- Hit Snap!", 50, 190);
+  text("- Select your desired battle goal", 50, 210);
   pop();
 }
