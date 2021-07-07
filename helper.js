@@ -115,3 +115,77 @@ const imagesJotl = [
   "transmitter.png",
   "weakling.png",
 ];
+let totalImageCount;
+
+function createDoms() {
+  seed = createInput();
+  button = createButton("Snap!");
+  playerNumber = createRadio();
+  playerNumber.option("1");
+  playerNumber.option("2");
+  playerNumber.option("3");
+  playerNumber.option("4");
+}
+
+function loadAllImages() {
+  totalImageCount =
+    imagesBaseGame.length + imagesExtended.length + imagesJotl.length;
+  let counter = 0;
+  //#region Base
+  for (let i = 0; i < imagesBaseGame.length; i++) {
+    let path = "battleGoals/base/" + imagesBaseGame[i];
+    loadGoalImage(counter, path);
+    counter++;
+  }
+  //#endregion
+  //#region Extended
+  for (let i = 0; i < imagesExtended.length; i++) {
+    let path = "battleGoals/extended/" + imagesExtended[i];
+    loadGoalImage(counter, path);
+    counter++;
+  }
+  //#endregion
+  //#region Jotl
+  for (let i = 0; i < imagesJotl.length; i++) {
+    let path = "battleGoals/jotl/" + imagesJotl[i];
+    loadGoalImage(counter, path);
+    counter++;
+  }
+  //#endregion
+}
+
+// JS - Closure
+function loadGoalImage(index, path) {
+  loadImage(path, imageLoaded);
+  function imageLoaded(img) {
+    goalsInit[index] = img;
+    if (goalsInit.length == totalImageCount) {
+      isLoading = false;
+    }
+  }
+}
+
+function showLoading() {
+  push();
+
+  background(51);
+  noFill();
+  strokeWeight(2);
+  let x = 150;
+
+  rect(x, height / 2, width - 2 * x, 20);
+  fill(0, 200, 0);
+  noStroke();
+  w = (width - 2 * x) * (goalsInit.length / totalImageCount);
+  rect(x, height / 2, w, 20);
+
+  fill(255);
+  text("Loading Images...", x, height / 2 - 5);
+  pop();
+}
+
+function showWelcome() {
+  push();
+  background(51);
+  pop();
+}

@@ -18,46 +18,51 @@ function preload() {
   //#endregion
   //#region All card images
   //#region Base
-  for (let i = 0; i < imagesBaseGame.length; i++) {
-    let path = "battleGoals/base/" + imagesBaseGame[i];
-    let image = loadImage(path);
-    goalsInit.push(image);
-  }
+  // for (let i = 0; i < imagesBaseGame.length; i++) {
+  //   let path = "battleGoals/base/" + imagesBaseGame[i];
+  //   let image = loadImage(path);
+  //   goalsInit.push(image);
+  // }
+  // //#endregion
+  // //#region Extended
+  // for (let i = 0; i < imagesExtended.length; i++) {
+  //   let path = "battleGoals/extended/" + imagesExtended[i];
+  //   let image = loadImage(path);
+  //   goalsInit.push(image);
+  // }
+  // //#endregion
+  // //#region Jotl
+  // for (let i = 0; i < imagesJotl.length; i++) {
+  //   let path = "battleGoals/jotl/" + imagesJotl[i];
+  //   let image = loadImage(path);
+  //   goalsInit.push(image);
+  // }
   //#endregion
-  //#region Extended
-  for (let i = 0; i < imagesExtended.length; i++) {
-    let path = "battleGoals/extended/" + imagesExtended[i];
-    let image = loadImage(path);
-    goalsInit.push(image);
-  }
-  //#endregion
-  //#region Jotl
-  for (let i = 0; i < imagesJotl.length; i++) {
-    let path = "battleGoals/jotl/" + imagesJotl[i];
-    let image = loadImage(path);
-    goalsInit.push(image);
-  }
-  //#endregion
-  goals = goalsInit;
+
   //#endregion
 }
+
+let angle = 0;
+let isLoading = true;
 
 function setup() {
   createCanvas(640, 480);
   background(51);
-  noLoop();
-  seed = createInput();
-  button = createButton("Snap!");
+
+  loadAllImages();
+  createDoms();
   button.mousePressed(btnPress);
-  playerNumber = createRadio();
-  playerNumber.option("1");
-  playerNumber.option("2");
-  playerNumber.option("3");
-  playerNumber.option("4");
   resetArrays();
 }
 
-function draw() {}
+function draw() {
+  if (isLoading) {
+    showLoading();
+  } else {
+    showWelcome();
+    noLoop();
+  }
+}
 
 function resetArrays() {
   goals = goalsInit;
@@ -85,21 +90,6 @@ function btnPress() {
   }
 
   showPicks();
-}
-
-function displayPicks() {
-  background(51);
-  var x = 0,
-    y = 0;
-  for (let i = 0; i < picks.length; i++) {
-    let pick = picks[i];
-    image(pick, x, y, 160, 240);
-    x += 160;
-    if (i == 3) {
-      x = 0;
-      y += 240;
-    }
-  }
 }
 
 function showPicks() {
@@ -143,6 +133,22 @@ function mouseReleased() {
         showPicks();
         image(back, 0, 0, 320, 480);
       }
+    }
+  }
+}
+
+// Debugger function
+function displayPicks() {
+  background(51);
+  var x = 0,
+    y = 0;
+  for (let i = 0; i < picks.length; i++) {
+    let pick = picks[i];
+    image(pick, x, y, 160, 240);
+    x += 160;
+    if (i == 3) {
+      x = 0;
+      y += 240;
     }
   }
 }
