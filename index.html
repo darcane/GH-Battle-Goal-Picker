@@ -12,14 +12,34 @@
     <title>GH Battle Goal Picker</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.js"></script>
     <style>
+      @font-face {
+        font-family: "majalla";
+        src: url(/assets/fonts/Majalla.ttf) format("truetype");
+      }
       body {
+        font-family: "majalla";
         padding: 0;
         margin: 0;
+      }
+      .switcher {
+        position: fixed;
+        right: calc(var(--spacing) / 2);
+        bottom: var(--spacing);
+        width: 32px;
+        height: 32px;
+        margin-bottom: 0;
+        padding: 0.75rem;
+        border-radius: 2rem;
+        border-style: none;
+        box-shadow: var(--card-box-shadow);
+        line-height: 1;
+        background-size: cover;
       }
     </style>
     <script src="constants.js"></script>
     <script src="helper.js"></script>
     <script src="uihelper.js"></script>
+    <script src="themeHandler.js"></script>
     <script src="sketch.js"></script>
   </head>
   <body>
@@ -29,10 +49,13 @@
       </section>
       <section>
         <div>
-          <div id="basicArea" class="grid">
-            <div id="inputArea"></div>
-            <div id="btnArea"></div>
-          </div>
+          <section>
+            <div id="basicArea" class="grid" style="width: 640px">
+              <div id="inputArea"></div>
+              <div id="btnArea"></div>
+            </div>
+            <div id="radioArea" class="grid"></div>
+          </section>
           <div>
             <fieldset id="pkgArea"></fieldset>
           </div>

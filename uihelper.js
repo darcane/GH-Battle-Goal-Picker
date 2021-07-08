@@ -1,7 +1,7 @@
 function showLoading() {
   push();
 
-  background(51);
+  background(bgColor);
   noFill();
   strokeWeight(2);
   let x = 150;
@@ -21,7 +21,7 @@ function showLoading() {
 
 function showWelcome() {
   push();
-  background(51);
+  background(bgColor);
   fill(255);
   textSize(36);
   textFont(fontPirata);
@@ -37,7 +37,7 @@ function showWelcome() {
 }
 
 function showPicks() {
-  background(51);
+  background(bgColor);
   let player = playerNumber.value();
   switch (player) {
     case "1":
@@ -69,7 +69,7 @@ function showPicks() {
 
 // Debugger function
 function displayPicks() {
-  background(51);
+  background(bgColor);
   var x = 0,
     y = 0;
   for (let i = 0; i < picks.length; i++) {
@@ -84,7 +84,7 @@ function displayPicks() {
 }
 
 function showError(message) {
-  background(51);
+  background(bgColor);
   fill(255);
   textFont(fontMajalla);
   textSize(30);
