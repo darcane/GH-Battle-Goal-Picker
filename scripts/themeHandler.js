@@ -10,7 +10,7 @@ function handleTheme() {
   themeSwitcher = createButton("");
   themeSwitcher.addClass("switcher outline");
   themeSwitcher.mousePressed(themeSwitch);
-  themeSwitcher.style("background-image", "url('assets/icons/sunIcon.png')");
+  themeSwitcher.style("background-image", "url('../assets/icons/sunIcon.png')");
 }
 
 function themeSwitch() {
@@ -20,7 +20,7 @@ function themeSwitch() {
       theme = "light";
       themeSwitcher.style(
         "background-image",
-        "url('assets/icons/darkIcon.png')"
+        "url('../assets/icons/darkIcon.png')"
       );
       break;
     case "light":
@@ -28,7 +28,7 @@ function themeSwitch() {
       theme = "dark";
       themeSwitcher.style(
         "background-image",
-        "url('assets/icons/sunIcon.png')"
+        "url('../assets/icons/sunIcon.png')"
       );
       break;
   }

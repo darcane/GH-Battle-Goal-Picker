@@ -21,8 +21,8 @@ let isLoading = true;
 let bgColor;
 
 function preload() {
-  fontPirata = loadFont("assets/fonts/PirataOne.ttf");
-  fontMajalla = loadFont("assets/fonts/Majalla.ttf");
+  fontPirata = loadFont("../assets/fonts/PirataOne.ttf");
+  fontMajalla = loadFont("../assets/fonts/Majalla.ttf");
 }
 
 function setup() {
