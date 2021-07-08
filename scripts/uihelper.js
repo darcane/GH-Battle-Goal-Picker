@@ -1,7 +1,7 @@
 function showLoading() {
   push();
 
-  background(51);
+  background(bgColor);
   noFill();
   strokeWeight(2);
   let x = 150;
@@ -13,26 +13,31 @@ function showLoading() {
   rect(x, height / 2, w, 20);
 
   fill(255);
-  text("Loading Images...", x, height / 2 - 5);
+  textSize(30);
+  textFont(fontMajalla);
+  text("Loading Images...", x, height / 2 - 10);
   pop();
 }
 
 function showWelcome() {
   push();
-  background(51);
+  background(bgColor);
   fill(255);
-  textSize(24);
+  textSize(36);
+  textFont(fontPirata);
   text("Welcome to GloomHaven Battle Goal Picker", 50, 100);
-  textSize(16);
+  textSize(24);
+  textFont(fontMajalla);
   text("- Please enter a seed number", 50, 150);
   text("- Then select player number", 50, 170);
-  text("- Hit Snap!", 50, 190);
-  text("- Select your desired battle goal", 50, 210);
+  text("- Select your desired packages", 50, 190);
+  text("- Hit Snap!", 50, 210);
+  text("- Select your desired battle goal", 50, 230);
   pop();
 }
 
 function showPicks() {
-  background(51);
+  background(bgColor);
   let player = playerNumber.value();
   switch (player) {
     case "1":
@@ -64,7 +69,7 @@ function showPicks() {
 
 // Debugger function
 function displayPicks() {
-  background(51);
+  background(bgColor);
   var x = 0,
     y = 0;
   for (let i = 0; i < picks.length; i++) {
@@ -79,7 +84,9 @@ function displayPicks() {
 }
 
 function showError(message) {
-  background(51);
+  background(bgColor);
   fill(255);
+  textFont(fontMajalla);
+  textSize(30);
   text(message, 50, height / 2);
 }
