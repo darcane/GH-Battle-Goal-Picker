@@ -2,16 +2,29 @@ let totalImageCount;
 
 function createDoms() {
   seed = createInput();
-  button = createButton("Snap!");
+  seed.parent("inputArea");
+
   playerNumber = createRadio();
   playerNumber.option("1");
   playerNumber.option("2");
   playerNumber.option("3");
   playerNumber.option("4");
+  playerNumber.parent("inputArea");
+
+  button = createButton("Snap!");
+  button.parent("btnArea");
 
   pkgBase = createCheckbox("Gloomhaven Base");
+  pkgBase.attribute("role", "switch");
+  pkgBase.parent("pkgArea");
+
   pkgExtended = createCheckbox("Satire's Extended");
+  pkgExtended.attribute("role", "switch");
+  pkgExtended.parent("pkgArea");
+
   pkgJotl = createCheckbox("Jaws of the Lion");
+  pkgJotl.attribute("role", "switch");
+  pkgJotl.parent("pkgArea");
 }
 
 function resetArrays() {

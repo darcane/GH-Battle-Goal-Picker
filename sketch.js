@@ -24,7 +24,9 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(640, 480);
+  let canvas = createCanvas(640, 480);
+  canvas.parent("canvasArea");
+
   background(51);
 
   loadAllImages();
