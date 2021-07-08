@@ -18,17 +18,24 @@ let fontMajalla;
 let picksShown = false;
 let isLoading = true;
 
+let bgColor;
+
 function preload() {
   fontPirata = loadFont("assets/fonts/PirataOne.ttf");
   fontMajalla = loadFont("assets/fonts/Majalla.ttf");
 }
 
 function setup() {
-  createCanvas(640, 480);
-  background(51);
+  let canvas = createCanvas(640, 480);
+  canvas.parent("canvasArea");
+
+  bgColor = color(17, 25, 31);
+  background(bgColor);
 
   loadAllImages();
   createDoms();
+  handleTheme();
+
   button.mousePressed(btnPress);
 }
 
