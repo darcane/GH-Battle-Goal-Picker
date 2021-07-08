@@ -13,7 +13,9 @@ function showLoading() {
   rect(x, height / 2, w, 20);
 
   fill(255);
-  text("Loading Images...", x, height / 2 - 5);
+  textSize(30);
+  textFont(fontMajalla);
+  text("Loading Images...", x, height / 2 - 10);
   pop();
 }
 
@@ -21,9 +23,11 @@ function showWelcome() {
   push();
   background(51);
   fill(255);
-  textSize(24);
+  textSize(36);
+  textFont(fontPirata);
   text("Welcome to GloomHaven Battle Goal Picker", 50, 100);
-  textSize(16);
+  textSize(24);
+  textFont(fontMajalla);
   text("- Please enter a seed number", 50, 150);
   text("- Then select player number", 50, 170);
   text("- Select your desired packages", 50, 190);
@@ -82,5 +86,7 @@ function displayPicks() {
 function showError(message) {
   background(51);
   fill(255);
+  textFont(fontMajalla);
+  textSize(30);
   text(message, 50, height / 2);
 }

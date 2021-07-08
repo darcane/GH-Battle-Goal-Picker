@@ -12,8 +12,16 @@ let pkgBase;
 let pkgExtended;
 let pkgJotl;
 
+let fontPirata;
+let fontMajalla;
+
 let picksShown = false;
 let isLoading = true;
+
+function preload() {
+  fontPirata = loadFont("assets/fonts/PirataOne.ttf");
+  fontMajalla = loadFont("assets/fonts/Majalla.ttf");
+}
 
 function setup() {
   createCanvas(640, 480);
